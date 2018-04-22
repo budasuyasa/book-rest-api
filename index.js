@@ -236,4 +236,4 @@ app.delete('/book/:isbn',[
 
 
 
-app.listen(port, () => console.log("book-rest-api run on port 3000"))
+app.listen(port, () => console.log("book-rest-api run on "+baseUrl ))
