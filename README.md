@@ -7,9 +7,12 @@ Simple single file REST-API using:
 - MySQL database
 ---
 ### Install
+Make sure you have installed [NodeJS](https://nodejs.org/) and MySQL server on your local machine.
+
 1. Clone this repo to your local machine
-2. Create new database using MySQL database. Grab **bookstore.sql** included in this repository and import into your MySQL server.
-3. Please look into lines bellow and configure your database and port:
+2. Create new database using MySQL database. Grab **bookstore.sql** included in this repo and import into your MySQL server.
+3. `cd` to your local repo directory and run `npm install` using Terminal or Windows PowerShell
+4. Please look into lines bellow and configure your database and port:
 ```javascript
 //Set app config
 const port = 3000;
@@ -26,7 +29,7 @@ const sequelize = new Sequelize('bookstore', 'root', 'yourpassword', {
     }
 });
 ```
-4. Run `node index.js` to start the server
+5. Run `node index.js` to start the server
 ---
 
 
@@ -46,5 +49,6 @@ Update existing book
 `DELETE /book/<isbn>`
 Delete book by ISBN
 
-
-You can get [Postman](https://www.getpostman.com/) collections API of this REST-API [here](https://www.getpostman.com/collections/d07bc76008eb2d618c6f)
+---
+### Test
+You can get [Postman](https://www.getpostman.com/) collections of this REST-API [here](https://www.getpostman.com/collections/d07bc76008eb2d618c6f)
