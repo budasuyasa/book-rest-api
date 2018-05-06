@@ -85,14 +85,14 @@ const book = sequelize.define('book', {
 //get all books
 app.get('/book/', (req, res) => {
     book.findAll().then(book => {
-        res.send(book)
+        res.json(book)
     })
 })
 
 //get book by isbn
 app.get('/book/:isbn', (req, res) => {
     book.findOne({where: {isbn: req.params.isbn}}).then(book => {
-        res.send(book)
+        res.json(book)
     })
 })
 
@@ -137,7 +137,7 @@ app.post('/book/', [
         description: req.body.description,
         image: req.file === undefined ? "" : req.file.filename
     }).then(newBook => {
-        res.send({
+        res.json({
             "status":"success",
             "message":"Book added",
             "data": newBook
@@ -190,7 +190,7 @@ app.put('/book/', [
             return book.findOne({where: {isbn: req.body.isbn}})      
         })
         .then(b => {
-            res.send({
+            res.json({
                 "status": "success",
                 "message": "Book updated",
                 "data": b
@@ -230,10 +230,9 @@ app.delete('/book/:isbn',[
                 
         })
         .then(r => {
-            res.send(r)
+            res.json(r)
         })
 })
-
 
 
 app.listen(port, () => console.log("book-rest-api run on "+baseUrl ))
